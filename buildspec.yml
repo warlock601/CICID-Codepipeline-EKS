@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <your-ecr-repo-uri>
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t <your-repo-name> .
+      - docker tag <your-repo-name>:latest <your-ecr-repo-uri>:latest
+  post_build:
+    commands:
+      - echo Pushing the Docker image...
+      - docker push <your-ecr-repo-uri>:latest
+artifacts:
+  files:
+    - k8s/deployment.yaml
