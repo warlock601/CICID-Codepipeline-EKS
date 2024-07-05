@@ -15,6 +15,10 @@ phases:
     commands:
       - echo Pushing the Docker image...
       - docker push 417623538526.dkr.ecr.us-east-1.amazonaws.com/python_webapp:latest
+  deploy:
+  image: aws/codebuild/standard:4.0
+  commands:
+    - kubectl apply -f deployment.yaml
 artifacts:
   files:
     - k8s/deployment.yaml
