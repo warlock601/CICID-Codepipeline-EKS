@@ -4,17 +4,17 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <your-ecr-repo-uri>
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 417623538526.dkr.ecr.us-east-1.amazonaws.com/python_webapp
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t <your-repo-name> .
-      - docker tag <your-repo-name>:latest <your-ecr-repo-uri>:latest
+      - docker build -t python_webapp .
+      - docker tag python_webapp:latest 417623538526.dkr.ecr.us-east-1.amazonaws.com/python_webapp:latest
   post_build:
     commands:
       - echo Pushing the Docker image...
-      - docker push <your-ecr-repo-uri>:latest
+      - docker push 417623538526.dkr.ecr.us-east-1.amazonaws.com/python_webapp:latest
 artifacts:
   files:
     - k8s/deployment.yaml
