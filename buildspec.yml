@@ -17,4 +17,4 @@ phases:
       - docker push 417623538526.dkr.ecr.us-east-1.amazonaws.com/python_webapp:latest
 artifacts:
   files:
-    - k8s/deployment.yaml  
+    - k8s/deployment.yaml 
