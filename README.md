@@ -56,8 +56,8 @@ Replace <your-region>, <your-ecr-repo-uri>, and <your-repo-name> with your actua
  Ensure your EKS cluster is set up and configured.
  Create a namespace if necessary.
 - Step 6: Kubernetes Deployment Manifest.
- Update your deployment.yaml file with your ECR image URI and other configurations.
--Step-7: Create a Deployment stage using CodeDeploy and use Lambda as compute (here I used Lmabda because of serverless capabilities).
+ Update your deployment.yaml file with your ECR image URI and other configurations. <br>
+-Step-7: Create a Deployment stage using CodeDeploy and use Lambda as compute (here I used Lmabda because of serverless capabilities).<br?
 -Step-8: Open the AWS CodePipeline console. <br>
 Create a new pipeline.<br>
 Add a source stage:
